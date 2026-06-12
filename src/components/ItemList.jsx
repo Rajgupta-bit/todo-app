@@ -5,7 +5,7 @@ const ItemList = ({ item, tasks, setTasks }) => {
   const handleCheck = async () => {
     const updatedCompleted = !item.completed;
 
-    await axios.put(`http://localhost:3000/tasks/${item._id}`, {
+    await axios.put(`https://todo-app-ugo7.onrender.com/tasks/${item._id}`, {
       completed: updatedCompleted,
     });
 
@@ -19,7 +19,7 @@ const ItemList = ({ item, tasks, setTasks }) => {
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3000/tasks/${item._id}`);
+    await axios.delete(`https://todo-app-ugo7.onrender.com/tasks/${item._id}`);
 
     setTasks(tasks.filter((task) => task._id !== item._id));
   };
@@ -29,7 +29,7 @@ const ItemList = ({ item, tasks, setTasks }) => {
 
     if (!newText || newText.trim() === "") return;
 
-    const res = await axios.put(`http://localhost:3000/tasks/${item._id}`, {
+    const res = await axios.put(`http://localhost:3000https://todo-app-ugo7.onrender.com/tasks/${item._id}`, {
       text: newText,
     });
 

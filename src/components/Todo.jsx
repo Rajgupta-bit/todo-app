@@ -24,7 +24,7 @@ const Todo = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/tasks");
+      const res = await axios.get("https://todo-app-ugo7.onrender.com/tasks");
 
       setTasks(res.data);
     } catch (error) {
@@ -44,7 +44,7 @@ const Todo = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/tasks", newTask);
+      await axios.post("https://todo-app-ugo7.onrender.com/tasks", newTask);
 
       fetchTasks();
 
