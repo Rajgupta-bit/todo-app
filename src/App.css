@@ -286,6 +286,8 @@ backdrop-filter: blur(10px);
 input[type="date"]{
   color: rgb(9, 8, 8) !important;
   background: rgb(234, 236, 243) !important;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 .addtask{
