@@ -232,7 +232,7 @@ const Todo = () => {
           </div>
         </div>
       </div>
-
+    <div className="middle4">
       <div className="taskList">
         {tasks.length === 0 ? (
           <p className="emptyText">No tasks added yet</p>
@@ -257,6 +257,7 @@ const Todo = () => {
           })
         )}
       </div>
+     </div> 
     </main>
   );
 };

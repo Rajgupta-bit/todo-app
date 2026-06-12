@@ -279,16 +279,11 @@ backdrop-filter: blur(10px);
   padding: 0 5px;
   border-radius: 8px;
   border: 1px solid #44546a;
-  /* background: #3e4d5e;
-  color: white; */
+  background: #3e4d5e;
+  color: white;
   outline: none;
 }
-input[type="date"]{
-  color: rgb(9, 8, 8) !important;
-  background: rgb(234, 236, 243) !important;
-  font-size: 15px;
-  font-weight: 800;
-}
+
 
 .addtask{
   height: 42px;
@@ -459,7 +454,10 @@ select{
 }
 
 /* last list of item */
-
+.middle4{
+  padding: 13px;
+  width: 100%;
+}
 .taskList {
   width: 100%;
   display: flex;
@@ -467,11 +465,11 @@ select{
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 30px;
   background: rgba(20, 35, 55, 0.8);
   border: 1px solid #263b5c;
   border-radius: 14px;
-  padding: 10px;
+  padding: 12px;
 }
 
 .taskItem {
@@ -498,11 +496,9 @@ select{
 }
 
 .taskLeft input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   accent-color: #cdd771;
-
-
 }
 
 .taskLeft h4 {
