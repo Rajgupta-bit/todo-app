@@ -279,10 +279,15 @@ backdrop-filter: blur(10px);
   padding: 0 5px;
   border-radius: 8px;
   border: 1px solid #44546a;
-  background: #3e4d5e;
-  color: white;
+  /* background: #3e4d5e;
+  color: white; */
   outline: none;
 }
+input[type="date"]{
+  color: rgb(9, 8, 8) !important;
+  background: rgb(234, 236, 243) !important;
+}
+
 .addtask{
   height: 42px;
   width: 8vw;

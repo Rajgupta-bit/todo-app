@@ -58,30 +58,29 @@ const Todo = () => {
   const today = new Date().toISOString().split("T")[0];
 
   const filteredTasks = tasks.filter((item) => {
+    // status filter
+    if (filter === "pending" && item.completed) return false;
 
-  // status filter
-  if (filter === "pending" && item.completed) return false;
+    if (filter === "completed" && !item.completed) return false;
 
-  if (filter === "completed" && !item.completed) return false;
+    // due date filter
+    if (dueFilter === "today" && item.date !== today) return false;
 
-  // due date filter
-  if (dueFilter === "today" && item.date !== today) return false;
+    if (dueFilter === "upcoming" && item.date <= today) return false;
 
-  if (dueFilter === "upcoming" && item.date <= today) return false;
+    if (dueFilter === "overdue" && !(item.date < today && !item.completed))
+      return false;
 
-  if (dueFilter === "overdue" && !(item.date < today && !item.completed))
-    return false;
+    // search filter
+    if (
+      searchText !== "" &&
+      !item.text.toLowerCase().includes(searchText.toLowerCase())
+    ) {
+      return false;
+    }
 
-  // search filter
-  if (
-    searchText !== "" &&
-    !item.text.toLowerCase().includes(searchText.toLowerCase())
-  ) {
-    return false;
-  }
-
-  return true;
-});
+    return true;
+  });
 
   return (
     <main className="body">
@@ -129,6 +128,7 @@ const Todo = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
+          
 
           <button className="addtask" onClick={handleAddTask}>
             + Add Task
@@ -180,7 +180,7 @@ const Todo = () => {
               {
                 tasks.filter(
                   (task) =>
-                    task.date === new Date().toISOString().split("T")[0]
+                    task.date === new Date().toISOString().split("T")[0],
                 ).length
               }
             </h1>
