@@ -91,10 +91,10 @@ const Todo = () => {
         </div>
 
         <div className="top-icons">
-          <div className="bell">
+          {/* <div className="bell">
             <IoNotificationsOutline className="bellIcon" />
             <span>3</span>
-          </div>
+          </div> */}
 
           <div className="profile">
             <FaUserCircle className="profileIcon" />
@@ -105,7 +105,6 @@ const Todo = () => {
 
               <button>Profile</button>
               <button>Settings</button>
-              <button>Logout</button>
             </div>
           </div>
         </div>

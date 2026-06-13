@@ -65,28 +65,37 @@
    color: white;
    text-decoration: none;
 }
-
 .setting{
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  height: 100%;
-}
-.setting ul li img{
-  height: 20px;
-  
-}
-.setting ul li {
    display: flex;
-   align-items: center;
-   gap: 5px;  
+    /* flex-direction: column;
+     justify-content: end; */
+      height: 100%;
+     }
+.setting ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting ul li span,
+.setting ul li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.setting ul li img {
+  width: 20px;
+  height: 20px;
 }
 .icon{
   background: #c3c0ce;
  
   color: rgb(35, 18, 183);
   /* border: 5px solid rgb(157, 174, 212); */
-  width: 40%; 
+  width: 35%; 
   border-radius: 50%;
   font-size: 30px;
   display: flex;
@@ -217,16 +226,16 @@ backdrop-filter: blur(10px);
 .profileMenu button:hover {
   background: #6c63ff;
 }
-.bellIcon{
+/* .bellIcon{
   font-size: 20px;
   color: white;
-}
+} */
 .profileIcon{
   font-size: 25px;
   color: #6c63ff;
 }
 
-.bell span{
+/* .bell span{
   position: absolute;
   top: -2px;
   right: -2px;
@@ -239,7 +248,7 @@ backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 .middle1{
   width:100%;
   padding: 8px;
@@ -676,6 +685,7 @@ select{
   .todo h2{
     font-size: 22px;
   }
+ 
 }
 
 
