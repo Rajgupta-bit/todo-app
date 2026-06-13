@@ -3,11 +3,15 @@ import logout from "../assets/logout.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(true);
+ const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+  const isLogin = !!token;
 
   const handleAuth = () => {
-    setIsLogin(false);
-    alert("Logout Successfully!");
+     localStorage.removeItem("token");
+
+  alert("Logout Successful!");
   };
   return (
     <>

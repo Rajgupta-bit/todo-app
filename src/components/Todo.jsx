@@ -19,12 +19,18 @@ const Todo = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetchTasks();
+    const token = localStorage.getItem("token");
+
+     if (!token) {
+      navigate("/login");
+      return;
+    }
+    //fetchTasks();
   }, []);
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("https://todo-app-ugo7.onrender.com/tasks");
+      const res = await axios.get("https://todo-app-ugo7.onrender.com/api/tasks");
 
       setTasks(res.data);
     } catch (error) {
@@ -44,7 +50,7 @@ const Todo = () => {
     };
 
     try {
-      await axios.post("https://todo-app-ugo7.onrender.com/tasks", newTask);
+      await axios.post("https://todo-app-ugo7.onrender.com/api/tasks", newTask);
 
       fetchTasks();
 

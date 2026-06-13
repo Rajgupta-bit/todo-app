@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate();
 
-  const validator = (e) => {
+  const validator =async  (e) => {
     e.preventDefault();
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -27,7 +30,35 @@ const Login = () => {
       return;
     }
 
-    alert("Login Successful!");
+    
+
+    try {
+
+  const res = await axios.post(
+    "https://todo-app-ugo7.onrender.com/api/auth/login",
+    {
+      email,
+      password,
+    }
+  );
+
+  localStorage.setItem(
+    "token",
+    res.data.token
+  );
+
+  alert("Login Successful!");
+
+  navigate("/");
+
+} catch (err) {
+
+  alert(
+    err.response?.data?.message ||
+    "Login Failed"
+  );
+
+}
   };
 
   return (

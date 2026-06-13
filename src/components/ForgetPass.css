@@ -1,0 +1,117 @@
+.forgetPage {
+  font-family: Arial, sans-serif;
+
+  background-image: url("../assets/login2img.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forget-container {
+  width: 350px;
+  padding: 30px;
+
+  background-color: rgba(253, 246, 227, 0.6);
+
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+
+  position: relative;
+}
+
+.forget-container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.info-text {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.forget-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.forget-container input {
+  width: 100%;
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  box-sizing: border-box;
+}
+
+.forgetBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: black;
+  color: white;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.forgetBtn:hover {
+  background-color: #4caf50;
+}
+
+.toggle-mode {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Dark Mode */
+
+.dark-mode {
+  background-color: #222;
+}
+
+.dark-mode .forget-container {
+  background-color: #444;
+  color: white;
+}
+
+.dark-mode input,
+.dark-mode input::placeholder {
+  background-color: #222;
+  color: white;
+  border-color: #666;
+}
+
+.dark-mode .forgetBtn {
+  background-color: #666;
+}
+
+.dark-mode .forgetBtn:hover {
+  background-color: #1e7f1f;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .forget-container {
+    width: 85%;
+    padding: 20px;
+  }
+}

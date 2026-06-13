@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import "./Signup.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [darkMode, setDarkMode] = useState(false);
-
+const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const validateForm = (e) => {
+  const validateForm = async (e) => {
     e.preventDefault();
 
     if (username.length < 3) {
@@ -39,7 +41,24 @@ const Signup = () => {
       return;
     }
 
-    alert("Sign Up Successful!");
+    
+
+    try {
+  await axios.post(
+    "https://todo-app-ugo7.onrender.com/api/auth/signup",
+    {
+      username,
+      email,
+      password,
+    }
+  );
+
+  alert("Signup Successful!");
+  navigate("/login");
+
+} catch (err) {
+  alert(err.response?.data?.message || "Signup Failed");
+}
   };
 
   return (
