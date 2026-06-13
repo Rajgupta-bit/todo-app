@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ForgetPass from "./components/ForgetPass";
 import './App.css';
-import SignUp from './components/Signup';
+
 
 const App = () => {
   return (

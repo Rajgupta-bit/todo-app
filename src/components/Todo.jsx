@@ -8,6 +8,7 @@ import { MdPendingActions } from "react-icons/md";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { BsCalendar2DateFill } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import ItemList from "./ItemList";
 
 const Todo = () => {
@@ -17,20 +18,30 @@ const Todo = () => {
   const [filter, setFilter] = useState("all");
   const [dueFilter, setDueFilter] = useState("all");
   const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-     if (!token) {
+    if (!token) {
       navigate("/login");
       return;
     }
-    //fetchTasks();
+    fetchTasks();
   }, []);
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("https://todo-app-ugo7.onrender.com/api/tasks");
+      const token = localStorage.getItem("token");
+
+      const res = await axios.get(
+        "https://todo-app-ugo7.onrender.com/api/tasks",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       setTasks(res.data);
     } catch (error) {
@@ -50,7 +61,17 @@ const Todo = () => {
     };
 
     try {
-      await axios.post("https://todo-app-ugo7.onrender.com/api/tasks", newTask);
+      const token = localStorage.getItem("token");
+
+      await axios.post(
+        "https://todo-app-ugo7.onrender.com/api/tasks",
+        newTask,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       fetchTasks();
 
@@ -133,7 +154,6 @@ const Todo = () => {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-          
 
           <button className="addtask" onClick={handleAddTask}>
             + Add Task
@@ -237,32 +257,32 @@ const Todo = () => {
           </div>
         </div>
       </div>
-    <div className="middle4">
-      <div className="taskList">
-        {tasks.length === 0 ? (
-          <p className="emptyText">No tasks added yet</p>
-        ) : filteredTasks.length === 0 ? (
-          <p className="emptyText">
-            {filter === "pending"
-              ? "No pending tasks ⏳"
-              : filter === "completed"
-                ? "No task completed"
-                : "No matching task found 🔍"}
-          </p>
-        ) : (
-          filteredTasks.map((item) => {
-            return (
-              <ItemList
-                key={item.id}
-                item={item}
-                tasks={tasks}
-                setTasks={setTasks}
-              />
-            );
-          })
-        )}
+      <div className="middle4">
+        <div className="taskList">
+          {tasks.length === 0 ? (
+            <p className="emptyText">No tasks added yet</p>
+          ) : filteredTasks.length === 0 ? (
+            <p className="emptyText">
+              {filter === "pending"
+                ? "No pending tasks ⏳"
+                : filter === "completed"
+                  ? "No task completed"
+                  : "No matching task found 🔍"}
+            </p>
+          ) : (
+            filteredTasks.map((item) => {
+              return (
+                <ItemList
+                  key={item._id}
+                  item={item}
+                  tasks={tasks}
+                  setTasks={setTasks}
+                />
+              );
+            })
+          )}
+        </div>
       </div>
-     </div> 
     </main>
   );
 };

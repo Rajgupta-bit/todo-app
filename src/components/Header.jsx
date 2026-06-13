@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logout from "../assets/logout.png";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 
 const Header = () => {
  const navigate = useNavigate();
@@ -12,6 +12,8 @@ const Header = () => {
      localStorage.removeItem("token");
 
   alert("Logout Successful!");
+
+  navigate("/login");
   };
   return (
     <>

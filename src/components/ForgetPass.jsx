@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ForgetPass.css";
+import axios from "axios";
 
 const ForgetPass = () => {
   const [email, setEmail] = useState("");
@@ -7,24 +8,18 @@ const ForgetPass = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailPattern.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
-
     alert("Password reset link sent successfully!");
   };
 
   return (
     <div className={darkMode ? "forgetPage dark-mode" : "forgetPage"}>
       <div className="forget-container">
-        <div
-          className="toggle-mode"
-          onClick={() => setDarkMode(!darkMode)}
-        >
+        <div className="toggle-mode" onClick={() => setDarkMode(!darkMode)}>
           🌙 Dark Mode
         </div>
 
