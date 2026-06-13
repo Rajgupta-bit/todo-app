@@ -47,7 +47,7 @@ const Login = () => {
     res.data.token
   );
 
-  alert("Login Successful!");
+  // alert("Login Successful!");
 
   navigate("/");
 
