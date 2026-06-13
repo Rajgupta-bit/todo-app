@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user2");
-
+const validator = require("validator");
 const router = express.Router();
 
 
@@ -12,6 +12,27 @@ router.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({
+        message: "Invalid email",
+      });
+    }
+
+    if (
+      !validator.isStrongPassword(password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      return res.status(400).json({
+        message:
+          "Password must contain 8+ chars, uppercase, lowercase, number and special character",
+      });
+    }
+
     const userExist = await User.findOne({ email });
 
     if (userExist) {
@@ -20,10 +41,7 @@ router.post("/signup", async (req, res) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(
-      password,
-      10
-    );
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
       username,
