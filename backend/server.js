@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("Todo API Running 🚀");
 });
 
-
+console.log("JWT:", process.env.JWT_SECRET);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
