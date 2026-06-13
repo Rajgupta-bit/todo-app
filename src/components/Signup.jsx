@@ -19,27 +19,27 @@ const navigate = useNavigate();
       return;
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailPattern.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+    // if (!emailPattern.test(email)) {
+    //   alert("Please enter a valid email address.");
+    //   return;
+    // }
 
-    if (!/^\d+$/.test(password)) {
-      alert("Password must contain only numbers.");
-      return;
-    }
+    // if (!/^\d+$/.test(password)) {
+    //   alert("Password must contain only numbers.");
+    //   return;
+    // }
 
-    if (password.length < 6) {
-      alert("Password must be at least 6 digits.");
-      return;
-    }
+    // if (password.length < 6) {
+    //   alert("Password must be at least 6 digits.");
+    //   return;
+    // }
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
+    // if (password !== confirmPassword) {
+    //   alert("Passwords do not match.");
+    //   return;
+    // }
 
     
 
