@@ -18,6 +18,7 @@ const Todo = () => {
   const [filter, setFilter] = useState("all");
   const [dueFilter, setDueFilter] = useState("all");
   const [searchText, setSearchText] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
@@ -124,10 +125,10 @@ const Todo = () => {
             <span>3</span>
           </div> */}
 
-          <div className="profile">
+          <div className="profile" onClick={() => setShowMenu(!showMenu)}>
             <FaUserCircle className="profileIcon" />
 
-            <div className="profileMenu">
+            <div className={`profileMenu ${showMenu ? "active" : ""}`}>
               <p>👤 {user?.username}</p>
               <p>📧 {user?.email}</p>
 

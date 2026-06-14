@@ -201,12 +201,12 @@ backdrop-filter: blur(10px);
   transition: 0.3s;
   z-index: 1000;
 }
-
-.profile:hover .profileMenu {
+.profileMenu.active{
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
 
 .profileMenu p {
   /* margin-bottom: 10px;
