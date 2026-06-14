@@ -187,7 +187,7 @@ align-items: center;
   position: absolute;
   top: 55px;
   right: 0;
-  width: 220px;
+  width: 250px;
   border: 1px solid #64748b;
 background: #42506b;
 backdrop-filter: blur(10px);
@@ -209,8 +209,16 @@ backdrop-filter: blur(10px);
 }
 
 .profileMenu p {
-  margin-bottom: 10px;
-  font-size: 14px;
+  /* margin-bottom: 10px;
+  font-size: 14px; */
+   display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin: 8px 0;
+
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .profileMenu button {
@@ -709,7 +717,16 @@ select{
 /* ========================= */
 
 @media (max-width: 768px){
+   
+   .profileMenu{
+    width: 240px;
+    right: 0;
+  }
 
+  .profileMenu p{
+    font-size: 14px;
+  }
+   
   .header{
     flex-direction: column;
     height: auto;
@@ -804,6 +821,15 @@ select{
 
 @media (max-width: 480px){
 
+.profileMenu{
+    width: 240px;
+    right: 0;
+  }
+
+  .profileMenu p{
+    font-size: 14px;
+  }
+    
   .dashboard h2{
     font-size: 20px;
   }
