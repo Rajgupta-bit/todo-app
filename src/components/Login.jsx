@@ -12,26 +12,6 @@ const Login = () => {
 
   const validator =async  (e) => {
     e.preventDefault();
-
-    // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // if (!emailPattern.test(email)) {
-    //   alert("Enter a valid email address");
-    //   return;
-    // }
-
-    // if (!/^\d+$/.test(password)) {
-    //   alert("Password must contain only numbers");
-    //   return;
-    // }
-
-    // if (password.length < 6) {
-    //   alert("Password must be at least 6 digits");
-    //   return;
-    // }
-
-    
-
     try {
 
   const res = await axios.post(
@@ -46,7 +26,7 @@ const Login = () => {
     "token",
     res.data.token
   );
-
+  localStorage.setItem("user", JSON.stringify(res.data.user));
   // alert("Login Successful!");
 
   navigate("/");

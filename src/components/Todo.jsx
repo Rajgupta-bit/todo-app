@@ -19,12 +19,13 @@ const Todo = () => {
   const [dueFilter, setDueFilter] = useState("all");
   const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user") || "null");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/");
+      navigate("/login");
       return;
     }
     fetchTasks();
@@ -127,11 +128,11 @@ const Todo = () => {
             <FaUserCircle className="profileIcon" />
 
             <div className="profileMenu">
-              <p>👤 Raj Gupta</p>
-              <p>📧 raj@gmail.com</p>
+              <p>👤 {user?.username}</p>
+              <p>📧 {user?.email}</p>
 
               <button>Profile</button>
-              <button>Settings</button>
+              {/* <button>Settings</button> */}
             </div>
           </div>
         </div>

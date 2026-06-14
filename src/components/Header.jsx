@@ -4,13 +4,13 @@ import { Link ,useNavigate } from "react-router-dom";
 
 const Header = () => {
  const navigate = useNavigate();
-
+const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
   const isLogin = !!token;
 
   const handleAuth = () => {
      localStorage.removeItem("token");
-
+   localStorage.removeItem("user");
   alert("Logout Successful!");
 
   navigate("/login");
@@ -32,8 +32,10 @@ const Header = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li> Important</li>
-            <li> Progress</li>
+            <li>Contact Us</li>
+            <li>
+               <Link to="/progress">Progress</Link>
+            </li>
           </ul>
 
           <div className="setting">
